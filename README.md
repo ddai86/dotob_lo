@@ -26,12 +26,6 @@ dotob.LO là hệ thống quản trị và điều phối một bộ công cụ 
 </div>
 
 ## Triển khai (Online/Offline)
-
-Các file đóng gói v1.0 nằm trong thư mục `install/`:
-- Online (pin digest): `install/compose.dotob-lo.prod.online.yaml`
-- Offline: `install/compose.dotob-lo.prod.offline.yaml`
-- Hướng dẫn đóng gói: `install/PACKAGING.md`
-
 ### Online (khuyến nghị)
 
 Build + push image lên GHCR và tự pin digest vào file compose online:
