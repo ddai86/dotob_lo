@@ -1,5 +1,5 @@
 # dotob_lo
-dotob.LO – Hệ thống máy chủ tri thức ngoại tuyến cá nhân, giúp bạn vận hành một bộ công cụ “tự chủ thông tin” ngay trong mạng nội bộ của mình.
+dotob.LO – Hệ thống máy chủ tri thức ngoại tuyến cá nhân, giúp bạn vận hành một bộ công cụ "tự chủ thông tin" ngay trong mạng nội bộ của mình.
 <div align="center">
   <img src="logo.png" width="200" height="200"/>
 
@@ -11,15 +11,21 @@ dotob.LO – Hệ thống máy chủ tri thức ngoại tuyến cá nhân, giúp
 
 ---
 
-dotob.LO là hệ thống quản trị và điều phối một bộ công cụ chạy bằng Docker, tập trung vào trải nghiệm offline-first: kiến thức, giáo dục và công cụ dữ liệu có thể chạy nội bộ trên máy chủ của bạn.
+dotob.LO là hệ thống quản trị và điều phối một bộ công cụ chạy bằng Docker, tập trung vào trải nghiệm offline-first: kiến thức, giáo dục và công cụ dữ liệu cá nhân tại nhà bạn và các cơ sở tương ứng.
+
+## Hình ảnh giao diện
+
+<div align="center">
+  <img src="1.png" width="600" height="auto" alt="Interface demo"/>
+</div>
+<div align="center">
+  <img src="2.png" width="250" height="auto" alt="Feature 1"/>
+  <img src="3.png" width="250" height="auto" alt="Feature 2"/>
+  <img src="4.png" width="250" height="auto" alt="Feature 3"/>
+  <img src="5.png" width="250" height="auto" alt="Feature 4"/>
+</div>
 
 ## Triển khai (Online/Offline)
-
-Các file đóng gói v1.0 nằm trong thư mục `install/`:
-- Online (pin digest): `install/compose.dotob-lo.prod.online.yaml`
-- Offline: `install/compose.dotob-lo.prod.offline.yaml`
-- Hướng dẫn đóng gói: `install/PACKAGING.md`
-
 ### Online (khuyến nghị)
 
 Build + push image lên GHCR và tự pin digest vào file compose online:
@@ -58,7 +64,7 @@ docker compose -p dotob-lo -f compose.dotob-lo.prod.offline.yaml up -d
 
 - Thư viện thông tin: Kiwix
 - Nền tảng giáo dục: Kolibri
-- Trợ lý AI cục bộ: Ollama + Qdrant
+- Trợ lý AI cục bộ: dotob AI
 - Công cụ dữ liệu: CyberChef
 - Ghi chú: FlatNotes
 
