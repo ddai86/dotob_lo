@@ -62,10 +62,6 @@ docker compose -p dotob-lo -f compose.dotob-lo.prod.offline.yaml up -d
 - Công cụ dữ liệu: CyberChef
 - Ghi chú: FlatNotes
 
-## Bảo vệ thương hiệu (Integrity Check)
-
-Các bản compose production đã bật `BRAND_INTEGRITY_ENFORCE=true`. Nếu có can thiệp vào file UI/branding trong image/container (public/assets, dotob_logo, favicon) thì admin sẽ trả 503 (trừ `/api/health`).
-
 ## Nguồn gốc dự án
 
 dotob.LO được xây dựng tích hợp cho thị trường Việt Nam bởi ICTSO.
