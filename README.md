@@ -5,16 +5,14 @@ dotob.LO – Hệ thống máy chủ tri thức ngoại tuyến cá nhân, giúp
 
   # dotob.LO
   ### Trung tâm điều khiển (Command Center) — Offline-first Knowledge & Tools
-
-  Tích hợp phát triển bởi ICTSO
+  Tích hợp phát triển bởi <a href="https://ictso.top" target="blank">ICTSO.</a>
 </div>
 
 ---
 
 dotob.LO là hệ thống quản trị và điều phối một bộ công cụ chạy bằng Docker, tập trung vào trải nghiệm offline-first: kiến thức, giáo dục và công cụ dữ liệu cá nhân tại nhà bạn và các cơ sở tương ứng.
-
+xem chi tiết thông tin tại đây <a href="https://ictso.top/tailieu/dotoblo/" target="blank">dotob.LO</a>
 ## Hình ảnh giao diện
-
 <div align="center">
   <img src="1.png" width="600" height="auto" alt="Interface demo"/>
 </div>
@@ -45,9 +43,8 @@ Hướng dẫn chi tiết cài đặt Online: <a href="install/INSTALL_OFFLINE.m
 - Ghi chú: FlatNotes
 
 ## Nguồn gốc dự án
-
-dotob.LO được xây dựng tích hợp cho thị trường Việt Nam bởi ICTSO.
+dotob.LO được xây dựng tích hợp cho thị trường Việt Nam bởi <a href="https://ictso.top" target="blank">ICTSO.</a>
 
 ## License
-
 Apache License 2.0: xem [LICENSE](LICENSE).
+
