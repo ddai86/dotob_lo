@@ -10,8 +10,8 @@ dotob.LO – Hệ thống máy chủ tri thức ngoại tuyến cá nhân, giúp
 
 ---
 
-<a href="https://86.pro.vn/" target="blank">dotob.LO</a> là hệ thống quản trị và điều phối một bộ công cụ chạy bằng Docker, tập trung vào trải nghiệm offline-first: kiến thức, giáo dục và công cụ dữ liệu cá nhân tại nhà bạn và các cơ sở tương ứng.
-xem chi tiết thông tin tại đây <a href="https://ictso.top/tailieu/dotoblo/" target="blank">dotob.LO</a>
+<a href="https://86.pro.vn/" target="blank">dotob.LO</a> là hệ thống quản trị và điều phối một bộ công cụ chạy bằng Docker, tập trung vào trải nghiệm offline-first: kiến thức, giáo dục và công cụ dữ liệu cá nhân tại nhà bạn và các cơ sở tương ứng.<br>
+Xem chi tiết thông tin <a href="https://ictso.top/tailieu/dotoblo/" target="blank"> tại đây dotob.LO</a>
 ## Hình ảnh giao diện
 <div align="center">
   <img src="1.png" width="600" height="auto" alt="Interface demo"/>
