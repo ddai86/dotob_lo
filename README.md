@@ -32,8 +32,9 @@ Các file đóng gói v1.0 nằm trong thư mục `install/`:
 Cài đặt tự động (khuyến nghị):
 Hướng dẫn chi tiết cài đặt Online: <a href="install/INSTALL_ONLINE.md">`install/INSTALL_ONLINE.md`</a>
 
-### Offline (không cần Internet ở máy đích)(Đang trong quá trình hoàn thành ...)
+### Offline (không cần Internet ở máy đích):
 Đóng gói offline kèm toàn bộ image app để cài app khi không có Internet 
+Hướng dẫn chi tiết cài đặt Online: <a href="install/INSTALL_OFFLINE.md">`install/INSTALL_OFFLINE.md`</a>
 
 ## Các thành phần chính
 
