@@ -19,10 +19,10 @@ dotob.LO là hệ thống quản trị và điều phối một bộ công cụ 
   <img src="1.png" width="600" height="auto" alt="Interface demo"/>
 </div>
 <div align="center">
-  <img src="2.png" width="150" height="auto" alt="Feature 1"/>
-  <img src="3.png" width="150" height="auto" alt="Feature 2"/>
-  <img src="4.png" width="150" height="auto" alt="Feature 3"/>
-  <img src="5.png" width="150" height="auto" alt="Feature 4"/>
+  <img src="2.png" width="250" height="auto" alt="Feature 1"/>
+  <img src="3.png" width="250" height="auto" alt="Feature 2"/>
+  <img src="4.png" width="250" height="auto" alt="Feature 3"/>
+  <img src="5.png" width="250" height="auto" alt="Feature 4"/>
 </div>
 
 ## Triển khai (Online/Offline)
