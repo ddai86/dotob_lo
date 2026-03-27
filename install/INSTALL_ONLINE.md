@@ -131,7 +131,3 @@ sudo rm -rf /opt/dotob-lo
 - Không truy cập được từ ngoài: mở cổng 8080 trên firewall/router và kiểm tra `URL` đúng IP/Domain.
 
 ---
-
-Tài liệu liên quan:
-- Đóng gói/Offline: `install/PACKAGING.md`
-- Compose online đã pin digest: `install/compose.dotob-lo.prod.online.yaml`
