@@ -1,7 +1,7 @@
 # dotob_lo
 dotob.LO – Hệ thống máy chủ tri thức ngoại tuyến cá nhân, giúp bạn vận hành một bộ công cụ “tự chủ thông tin” ngay trong mạng nội bộ của mình.
 <div align="center">
-  <img src="dotob_logo.png" width="200" height="200"/>
+  <img src="logo.png" width="200" height="200"/>
 
   # dotob.LO
   ### Trung tâm điều khiển (Command Center) — Offline-first Knowledge & Tools
