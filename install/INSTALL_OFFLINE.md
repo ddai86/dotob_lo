@@ -19,7 +19,7 @@ Chép các file sau sang máy đích (ví dụ `/opt/dotob-lo/`):
 
 ## 3) Xác minh file tar (khuyến nghị)
 
-Trên máy đích (Linux), tại thư mục chứa file tar:
+Trên máy cài đặt (Linux), tại thư mục chứa file tar:
 
 ```bash
 sha256sum -c dotob-lo_core_1.0.tar.sha256
