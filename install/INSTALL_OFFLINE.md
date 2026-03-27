@@ -13,7 +13,7 @@ Tài liệu này hướng dẫn triển khai dotob.LO theo phương thức offli
 ## 2) Tải và chép bộ cài sang máy đích
 
 Chép các file sau sang máy cài đặt để vào foder 'dotob-lo' (Lưu ý :tạo foder 'dotob-lo' trong 'opt' trên máy cần cài đặt theo thư mục `/opt/dotob-lo/`):
-- `https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar/dotob-lo_core_1.0.tar`
+- `https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar`
 - `install/dist/dotob-lo_core_1.0.tar.sha256`
 - `install/compose.dotob-lo.prod.offline.yaml`
 
