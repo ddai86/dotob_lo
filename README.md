@@ -70,7 +70,7 @@ docker compose -p dotob-lo -f compose.dotob-lo.prod.offline.yaml up -d
 
 - Thư viện thông tin: Kiwix
 - Nền tảng giáo dục: Kolibri
-- Trợ lý AI cục bộ: Ollama + Qdrant
+- Trợ lý AI cục bộ: dotob AI
 - Công cụ dữ liệu: CyberChef
 - Ghi chú: FlatNotes
 
