@@ -3,9 +3,7 @@
 Tài liệu này hướng dẫn triển khai dotob.LO theo phương thức offline: máy đích không cần Internet. Đã đóng gói Docker images thành một file `.tar`, chép sang máy đích rồi `docker load` và chạy bằng Docker Compose.
 
 ## Điều kiện tiên quyết
-
-- Máy đóng gói (có Internet): có Docker, đủ dung lượng đĩa để `docker save`.
-- Máy đích (không Internet): cài sẵn Docker và Docker Compose (plugin `docker compose`).
+- Máy cài đặt (không Internet): cài sẵn Docker và Docker Compose (plugin `docker compose`).
 - Cổng 8080/tcp mở trên máy đích nếu truy cập từ máy khác trong mạng.
 
 ## 1) Đóng gói bản cài đặt offline lưu tại:
