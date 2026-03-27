@@ -26,7 +26,33 @@ dotob.LO là hệ thống quản trị và điều phối một bộ công cụ 
 </div>
 
 ## Triển khai (Online/Offline)
+
+Các file đóng gói v1.0 nằm trong thư mục `install/`:
+- Online (pin digest): `install/compose.dotob-lo.prod.online.yaml`
+- Offline: (đang xây dựng) `install/compose.dotob-lo.prod.offline.yaml`
+- Hướng dẫn đóng gói: `install/PACKAGING.md`
+
+Hướng dẫn chi tiết cài đặt Online: `install/INSTALL_ONLINE.md`
+
 ### Online (khuyến nghị)
+
+Cài đặt tự động (khuyến nghị):
+
+```bash
+sudo bash install/install-online.sh \
+  --url "http://SERVER_IP_OR_DOMAIN:8080" \
+  --db-password "your-db-pass" \
+  --mysql-root-password "your-root-pass"
+```
+
+Windows (PowerShell):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File install\install-online.ps1 `
+  -Url "http://SERVER_IP_OR_DOMAIN:8080" `
+  -DbPassword "your-db-pass" `
+  -MysqlRootPassword "your-root-pass"
+```
 
 Build + push image lên GHCR và tự pin digest vào file compose online:
 
