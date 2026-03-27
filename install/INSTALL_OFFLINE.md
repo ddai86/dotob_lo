@@ -9,13 +9,13 @@ Tài liệu này hướng dẫn triển khai dotob.LO theo phương thức offli
 - Cổng 8080/tcp mở trên máy đích nếu truy cập từ máy khác trong mạng.
 
 ## 1) Đóng gói bản cài đặt offline lưu tại:
-- `install/dist/dotob-lo_core_1.0.tar`
+- bản đóng gói này 4Gb~5Gb lên các bạn tải ở đây `https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar`
 - `install/dist/dotob-lo_core_1.0.tar.sha256`
 
 ## 2) Tải và chép bộ cài sang máy đích
 
 Chép các file sau sang máy đích (ví dụ `/opt/dotob-lo/`):
-- `install/dist/dotob-lo_core_1.0.tar`
+- `https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar/dotob-lo_core_1.0.tar`
 - `install/dist/dotob-lo_core_1.0.tar.sha256`
 - `install/compose.dotob-lo.prod.offline.yaml`
 
