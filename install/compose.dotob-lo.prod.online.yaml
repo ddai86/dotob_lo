@@ -2,7 +2,7 @@ name: dotob-lo
 
 services:
   admin:
-    image: ghcr.io/ddai86/dotob-lo-admin@sha256:09f1f19d59de6df821fb25e7ad869f69ee9fedeb340a1612a6649b827d4e8857
+    image: ghcr.io/ddai86/dotob-lo-admin@sha256:461c87169deb3a48100b8d14f2b83d900e6ca143908f7ffc72f9c2c6a48f4abc
     container_name: dotoblo_admin
     restart: unless-stopped
     read_only: true
