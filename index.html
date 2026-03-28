@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dotob.LO - Bộ Não Tri Thức Của Bạn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           THEME VÀ CẤU HÌNH CƠ BẢN
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-green: #0e9506;
+            --dark-green: #0a7204;
+            --light-green: #1abc10;
+            --bright-green: #2dd442;
+            --neon-cyan: #00ffcc;
+            --bg-dark: #0d120f;
+            --bg-card: rgba(14, 149, 6, 0.08);
+            --text-primary: #ffffff;
+            --text-secondary: #c8e6d5;
+            --border-color: rgba(14, 149, 6, 0.5);
+            --glow-shadow: 0 0 20px rgba(14, 149, 6, 0.6);
+            --tech-gradient: linear-gradient(135deg, #0e9506 0%, #1abc10 50%, #2dd442 100%);
+            --bright-future: linear-gradient(135deg, #0e9506 0%, #1bbc22 30%, #2ed936 60%, #5eeb6a 100%);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.5;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* ============================================
+           BACKGROUND EFFECTS - TƯƠNG LAI TƯƠI SÁNG
+           ============================================ */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-image: 
+                linear-gradient(rgba(14, 149, 6, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14, 149, 6, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(40px); }
+        }
+        
+        /* Ánh sáng rực rỡ từ dưới lên */
+        .bg-glow-radiance {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(ellipse at bottom, rgba(45, 212, 66, 0.25) 0%, transparent 50%),
+                        radial-gradient(ellipse at center, rgba(14, 149, 6, 0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at top, rgba(14, 149, 6, 0.05) 0%, transparent 70%);
+            animation: radiancePulse 8s ease-in-out infinite alternate;
+        }
+        
+        @keyframes radiancePulse {
+            from { opacity: 0.7; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.05); }
+        }
+        
+        /* Particles bay lên như ánh sáng */
+        .rising-light-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--primary-green);
+            animation: riseLight 12s linear infinite;
+        }
+        
+        @keyframes riseLight {
+            0% { 
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            10% { opacity: 0.7; }
+            80% { opacity: 0.7; }
+            100% { 
+                transform: translateY(-30vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+        
+        /* Dải ánh sáng chuyển động */
+        .light-stream {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--bright-green), var(--neon-cyan), transparent);
+            z-index: -1;
+            opacity: 0.4;
+            animation: lightStreamFlow 6s linear infinite;
+        }
+        
+        @keyframes lightStreamFlow {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* ============================================
+           CONTAINER CHÍNH
+           ============================================ */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px 18px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ============================================
+           HEADER SECTION - FONT ĐỌC DỄ
+           ============================================ */
+        header {
+            text-align: center;
+            padding: 15px 12px 25px;
+            position: relative;
+        }
+        
+        .logo-header::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(14, 149, 6, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulseLogo 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulseLogo {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.8; }
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.3rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #ffffff 0%, var(--bright-green) 30%, var(--neon-cyan) 60%, var(--bright-green) 100%);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            display: inline-block;
+            animation: logoGlow 4s linear infinite, subtleShimmer 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(45, 212, 66, 0.5));
+        }
+        
+        @keyframes logoGlow {
+            0% { background-position: 0% center; }
+            100% { background-position: 300% center; }
+        }
+        
+        @keyframes subtleShimmer {
+            from { filter: drop-shadow(0 0 15px rgba(45, 212, 66, 0.4)); }
+            to { filter: drop-shadow(0 0 30px rgba(45, 212, 66, 0.8)); }
+        }
+        
+        .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-top: 0px;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .tagline {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 6px 20px;
+            background: var(--bright-future);
+            border: 2px solid var(--bright-green);
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 0 25px rgba(45, 212, 66, 0.5), inset 0 0 15px rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            animation: taglinePulse 2.5s ease-in-out infinite;
+        }
+        
+        .tagline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: taglineShine 4s linear infinite;
+        }
+        
+        @keyframes taglinePulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(45, 212, 66, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(45, 212, 66, 0.8); }
+        }
+        
+        @keyframes taglineShine {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+        
+        /* ============================================
+           TEXT STYLING - DỄ ĐỌC NHẤT
+           ============================================ */
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        h3, h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        
+        p, li, span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+        
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 14px 0 10px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-green), var(--bright-green));
+            animation: titleLineExpand 3s ease-in-out infinite;
+        }
+        
+        @keyframes titleLineExpand {
+            0%, 100% { width: 50%; }
+            50% { width: 100%; }
+        }
+        
+        .section-title::before {
+            content: '▸';
+            color: var(--bright-green);
+            animation: arrowBounce 2s infinite;
+            text-shadow: 0 0 10px var(--bright-green);
+            font-size: 1.2rem;
+        }
+        
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+        
+        /* Text gradient effect cho các tiêu đề quan trọng */
+        .gradient-text {
+            background: var(--bright-future);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+        
+        /* ============================================
+           CARD STYLE - SẠCH ĐẸP DỄ ĐỌC
+           ============================================ */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin: 6px 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 15px rgba(14, 149, 6, 0.1), inset 0 0 20px rgba(14, 149, 6, 0.05);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--primary-green), var(--bright-green));
+            transition: height 0.3s ease;
+        }
+        
+        .card:hover::before {
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(45, 212, 66, 0.25), inset 0 0 20px rgba(14, 149, 6, 0.1);
+            border-color: var(--bright-green);
+        }
+        
+        .card h3 {
+            color: var(--bright-green);
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+        
+        .card h4 {
+            color: var(--primary-green);
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        
+        .card p {
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 6px 0;
+        }
+        
+        .card li {
+            color: var(--text-secondary);
+            padding: 5px 0 5px 25px;
+            position: relative;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            transition: all 0.2s ease;
+        }
+        
+        .card li:hover {
+            color: var(--bright-green);
+            transform: translateX(5px);
+        }
+        
+        .card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--bright-green);
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-shadow: 0 0 8px rgba(45, 212, 66, 0.8);
+        }
+        
+        .highlight-text {
+            color: var(--bright-green);
+            font-weight: 600;
+            text-shadow: 0 0 15px rgba(45, 212, 66, 0.6);
+            animation: highlightPulse 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes highlightPulse {
+            from { text-shadow: 0 0 8px rgba(45, 212, 66, 0.4); }
+            to { text-shadow: 0 0 20px rgba(45, 212, 66, 0.9); }
+        }
+        
+        /* ============================================
+           GRID LAYOUT SYSTEM
+           ============================================ */
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 12px 0;
+        }
+        
+        .grid-2-col .card {
+            margin: 0;
+        }
+        
+        @media (max-width: 700px) {
+            .grid-2-col {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ============================================
+           HIGHLIGHT BOXES - HUD MẠNH MẼ
+           ============================================ */
+        .highlight-box {
+            background: linear-gradient(145deg, rgba(14, 149, 6, 0.12), rgba(14, 149, 6, 0.05));
+            border: 2px solid var(--primary-green);
+            border-radius: 10px;
+            padding: 12px;
+            margin: 10px 0;
+            position: relative;
+            box-shadow: 0 0 30px rgba(14, 149, 6, 0.2), inset 0 0 25px rgba(14, 149, 6, 0.1);
+            overflow: hidden;
+        }
+        
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--bright-green), transparent);
+            animation: scanLine 4s linear infinite;
+        }
+        
+        @keyframes scanLine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .highlight-box .label {
+            display: inline-block;
+            background: var(--bright-future);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            position: absolute;
+            top: -1px;
+            left: 12px;
+            box-shadow: 0 0 15px rgba(45, 212, 66, 0.6);
+        }
+        
+        .highlight-box::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 18px;
+            height: 18px;
+            border-top: 2px solid var(--bright-green);
+            border-right: 2px solid var(--bright-green);
+            box-shadow: 0 0 10px rgba(45, 212, 66, 0.5);
+        }
+        
+        /* ============================================
+           SECURITY SECTION - LOCKED
+           ============================================ */
+        .security-section {
+            background: linear-gradient(145deg, rgba(14, 149, 6, 0.12), rgba(14, 149, 6, 0.05));
+            border: 2px solid var(--primary-green);
+            border-radius: 10px;
+            padding: 12px;
+            margin: 12px 0;
+            position: relative;
+            box-shadow: 0 0 35px rgba(14, 149, 6, 0.25);
+        }
+        
+        .security-points {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .security-point {
+            text-align: center;
+            padding: 10px;
+            background: rgba(14, 149, 6, 0.1);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .security-point:hover {
+            background: rgba(45, 212, 66, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 0 20px rgba(45, 212, 66, 0.4);
+        }
+        
+        .security-check {
+            color: var(--bright-green);
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 5px;
+            text-shadow: 0 0 12px rgba(45, 212, 66, 0.9);
+            animation: checkPulse 2.5s ease-in-out infinite;
+        }
+        
+        @keyframes checkPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.9); }
+        }
+        
+        .security-point span {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+        
+        @media (max-width: 600px) {
+            .security-points {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ============================================
+           SUMMARY BOX - BRAIN HOA RỰC
+           ============================================ */
+        .summary-box {
+            background: linear-gradient(135deg, var(--primary-green), var(--bright-green), var(--light-green));
+            color: white;
+            border-radius: 10px;
+            padding: 14px;
+            margin: 14px 0;
+            text-align: center;
+            box-shadow: 0 0 45px rgba(45, 212, 66, 0.5), inset 0 0 35px rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .summary-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: brainSpin 8s linear infinite;
+        }
+        
+        @keyframes brainSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .summary-box h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            position: relative;
+            letter-spacing: 2px;
+        }
+        
+        .summary-box p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            position: relative;
+            font-weight: 400;
+        }
+        
+        .summary-emoji {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.6));
+            animation: emojiFloat 3.5s ease-in-out infinite;
+        }
+        
+        @keyframes emojiFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.08); }
+        }
+        
+        /* ============================================
+           SPECIAL FEATURES - MODULE
+           ============================================ */
+        .special-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 12px 0;
+        }
+        
+        .special-item {
+            text-align: center;
+            padding: 10px;
+            background: linear-gradient(145deg, rgba(14, 149, 6, 0.12), rgba(14, 149, 6, 0.05));
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .special-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--bright-future);
+            transition: height 0.3s ease;
+        }
+        
+        .special-item:hover::before {
+            height: 100%;
+        }
+        
+        .special-item:hover {
+            background: rgba(45, 212, 66, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 0 25px rgba(45, 212, 66, 0.4);
+        }
+        
+        .special-item h4 {
+            font-family: 'Inter', sans-serif;
+            color: var(--bright-green);
+            font-size: 0.88rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .special-item p {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 600px) {
+            .special-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ============================================
+           CTA BUTTON - NỔI BẬT
+           ============================================ */
+        .cta-container {
+            text-align: center;
+            margin: 18px 0;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 32px;
+            background: var(--bright-future);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(45, 212, 66, 0.5), inset 0 0 25px rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: buttonShine 3s linear infinite;
+        }
+        
+        @keyframes buttonShine {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 50px rgba(45, 212, 66, 0.7), inset 0 0 35px rgba(255,255,255,0.2);
+        }
+        
+        .cta-subtext {
+            margin-top: 12px;
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* ============================================
+           INFO BOX
+           ============================================ */
+        .info-box {
+            background: rgba(14, 149, 6, 0.08);
+            border: 1px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .info-box strong {
+            color: var(--bright-green);
+            font-weight: 600;
+        }
+        
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            text-align: center;
+            padding: 20px 12px;
+            margin-top: 22px;
+            border-top: 1px solid var(--border-color);
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--bright-green), transparent);
+            box-shadow: 0 0 15px var(--bright-green);
+        }
+        
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--bright-green);
+            margin-bottom: 8px;
+            text-shadow: 0 0 15px rgba(45, 212, 66, 0.6);
+        }
+        
+        .footer-text {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            line-height: 1.6;
+        }
+        
+        .github-link {
+            color: var(--bright-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 8px rgba(45, 212, 66, 0.5);
+        }
+        
+        .github-link:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+        }
+        
+        /* ============================================
+           SCROLL REVEAL CLASS
+           ============================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+		.logo-container {
+            width: 40px;
+            height: auto;
+            background: linear-gradient(135deg, var(--secondary-green), var(--primary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0px;
+            box-shadow: 0 3px 8px rgba(34, 197, 94, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow-radiance"></div>
+    <div id="particles" class="rising-light-particles"></div>
+    
+    <!-- Light streams -->
+    <div class="light-stream" style="animation-delay: 0s;"></div>
+    <div class="light-stream" style="animation-delay: 2s;"></div>
+    <div class="light-stream" style="animation-delay: 4s;"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="reveal active logo-header">
+            <h1 class="logo"><img src="logo.png" class="logo-container"> dotob.LO</h1>
+            <p class="subtitle">Một hệ thống giúp bạn lưu trữ thông tin và sử dụng AI ngay trên máy của mình, không cần Internet.</p>
+            <div class="tagline">Không Internet vẫn dùng được</div>
+			 <a href="https://github.com/ddai86/dotob_lo" target="_blank" class="github-link"><br>👉 Xem dự án trên GitHub</a>
+        </header>
+        <!-- Hiểu Đơn Giản Section -->
+        <section class="reveal">
+            <h2 class="section-title">Bạn có thể làm gì với dotob.LO?</h2>
+            <div class="card">
+                <h3>👉 Hiểu đơn giản:</h3>
+                <p><strong>dotob.LO</strong> giống như một "kho kiến thức + người trợ giúp thông minh" nằm ngay trong máy của bạn</p>
+                <ul>
+                    <li>Bạn cần tìm thông tin → có sẵn để tra cứu</li>
+                    <li>Bạn không hiểu vấn đề → hệ thống sẽ giải thích lại cho bạn</li>
+                    <li>Bạn có tài liệu riêng → hệ thống có thể đọc và trả lời giúp</li>
+                </ul>
+                <p style="margin-top: 10px;" class="highlight-text">✨ <strong>Tất cả hoạt động ngay trên máy của bạn, không cần Internet</strong></p>
+            </div>
+        </section>
+        
+        <!-- Khẩn Cấp Section -->
+        <section class="reveal">
+            <h2 class="section-title">🆘 Khi không có Internet (thiên tai, sự cố)</h2>
+            <div class="highlight-box">
+                <span class="label">Tình huống khẩn cấp</span>
+                <h3 style="color: var(--bright-green); margin: 10px 0 8px; padding:5px;">Khi mất Internet, bạn vẫn có thể:</h3>
+                <div class="grid-2-col">
+                    <div class="card">
+                        <h4>🩺 Y tế</h4>
+                        <ul>
+                            <li>Tra cứu cách sơ cứu</li>
+                            <li>Chăm sóc y tế cơ bản</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>⛺ Sinh tồn</h4>
+                        <ul>
+                            <li>Xem hướng dẫn sinh tồn</li>
+                            <li>Lọc nước, bảo quản thực phẩm</li>
+                            <li>Dựng nơi trú ẩn</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid-2-col">
+                    <div class="card">
+                        <h4>🗺️ Di chuyển</h4>
+                        <ul>
+                            <li>Xem bản đồ đã tải sẵn</li>
+                            <li>Di chuyển an toàn</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <p class="highlight-text"><strong>Mọi thông tin đã được lưu sẵn trong máy</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Các Tình Huống Sử Dụng Chính -->
+        <section class="reveal">
+            <h2 class="section-title">🎓 Học tập & giáo dục tại nhà</h2>
+            <div class="card">
+                <ul>
+                    <li>Truy cập tài liệu học tập đã tải về</li>
+                    <li>Dùng AI như một "gia sư" để giải thích bài</li>
+                    <li>Tải sách, tài liệu lên để AI giúp trả lời</li>
+                </ul>
+                <p style="margin-top: 8px;" class="highlight-text">✨ <strong>Không cần Internet vẫn học được</strong></p>
+            </div>
+        </section>
+        
+        <section class="reveal">
+            <h2 class="section-title">🌱 Sống ở nơi ít Internet</h2>
+            <div class="grid-2-col">
+                <div class="card">
+                    <ul>
+                        <li>Học làm vườn, sửa chữa</li>
+                        <li>Kỹ năng sống</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <ul>
+                        <li>Tra cứu kiến thức y tế cơ bản</li>
+                        <li>Nhờ AI hỗ trợ lên kế hoạch</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="reveal">
+            <h2 class="section-title">🏗️ Công việc tại nơi xa</h2>
+            <div class="grid-2-col">
+                <div class="card">
+                    <ul>
+                        <li>Xem tài liệu kỹ thuật, hướng dẫn công việc</li>
+                        <li>Lưu quy trình làm việc để tra cứu nhanh</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <ul>
+                        <li>AI giúp giải thích và tìm thông tin</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="reveal">
+            <h2 class="section-title">🧭 Du lịch & khám phá</h2>
+            <div class="grid-2-col">
+                <div class="card">
+                    <ul>
+                        <li>Xem bản đồ không cần Internet</li>
+                        <li>Tìm hiểu địa điểm, văn hoá</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <ul>
+                        <li>Tra cứu thông tin khi cần</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Bảo Mật Section -->
+        <section class="reveal">
+            <h2 class="section-title">🔒 Riêng tư & bảo mật</h2>
+            <div class="security-section">
+                <span class="label">ĐIỂM QUAN TRỌNG NHẤT</span>
+                <h3 style="color: var(--bright-green); margin-top: 10px; font-size: 1.05rem;" class="highlight-text">Đây là điểm quan trọng nhất:</h3>
+                <div class="security-points">
+                    <div class="security-point">
+                        <span class="security-check">✓</span>
+                        <span>Dữ liệu nằm trong máy của bạn</span>
+                    </div>
+                    <div class="security-point">
+                        <span class="security-check">✓</span>
+                        <span>Không gửi thông tin ra ngoài</span>
+                    </div>
+                    <div class="security-point">
+                        <span class="security-check">✓</span>
+                        <span>Không bị theo dõi</span>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <strong>ℹ️ "Hệ thống"</strong> = máy tính hoặc server của bạn<br>
+                    <strong>ℹ️ "AI"</strong> = chương trình giúp trả lời câu hỏi và xử lý thông tin
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tóm Lại -->
+        <section class="reveal">
+            <div class="summary-box">
+                <div class="summary-emoji">🧠</div>
+                <h3>TÓM LẠI</h3>
+                <p><strong>dotob.LO</strong> = một "bộ não tri thức" riêng của bạn</p>
+                <p style="font-size: 1rem;">Hoạt động ngay cả khi không có Internet</p>
+            </div>
+        </section>
+        
+        <!-- Đặc Điểm Nổi Bật -->
+        <section class="reveal">
+            <h2 class="section-title">💡 Điều đặc biệt</h2>
+            <div class="special-features">
+                <div class="special-item">
+                    <h4>Không cần Internet</h4>
+                    <p>Vẫn dùng được</p>
+                </div>
+                <div class="special-item">
+                    <h4>Dữ liệu cục bộ</h4>
+                    <p>Dữ liệu không rời khỏi hệ thống</p>
+                </div>
+                <div class="special-item">
+                    <h4>Mã nguồn mở</h4>
+                    <p>ai cũng có thể dùng, sửa và phát triển thêm</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="reveal">
+            <div class="cta-container">
+                <a href="https://github.com/ddai86/dotob_lo" target="_blank" class="cta-button">
+                    <span>🚀</span>
+                    <span>TRẢI NGHIỆM & ĐÓNG GÓP</span>
+                    <span>⭐</span>
+                </a>
+                <p class="cta-subtext">GitHub Repository • Miễn phí • Cộng đồng cùng phát triển</p>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-logo"><img src="logo.png" class="logo-container">  dotob.LO</div>
+            <p class="footer-text">Bộ não tri thức cá nhân của bạn - Hoạt động OFFLINE</p>
+            <p class="footer-text" style="margin-top: 8px;">
+                <a href="https://github.com/ddai86/dotob_lo" target="_blank" class="github-link">
+                    👉 Xem dự án trên GitHub
+                </a>
+            </p>
+            <p class="footer-text" style="margin-top: 12px; font-size: 0.75rem;">
+                © 2026 dotob.LO - Mã nguồn mở • Tự do đóng góp
+            </p>
+        </footer>
+    </div>
+    
+    <!-- JavaScript for Particles and Reveal -->
+    <script>
+        // Tạo particles ánh sáng bay lên
+        function createParticles() {
+            const container = document.getElementById('particles');
+            
+            for (let i = 0; i < 60; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 12 + 's';
+                particle.style.animationDuration = (8 + Math.random() * 8) + 's';
+                
+                // Đa dạng màu sắc (xanh chính + xanh sáng)
+                if (Math.random() > 0.6) {
+                    particle.style.background = '#2dd442';
+                    particle.style.boxShadow = '0 0 20px #2dd442';
+                } else if (Math.random() > 0.8) {
+                    particle.style.background = '#00ffcc';
+                    particle.style.boxShadow = '0 0 20px #00ffcc';
+                }
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Scroll reveal effect
+        function scrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            
+            reveals.forEach(reveal => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 50) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            createParticles();
+            setTimeout(scrollReveal, 100);
+        });
+        
+        window.addEventListener('scroll', scrollReveal);
+		
+  function ictsoAlert() {
+		alert("⚠️ Bản quyền thuộc Công ty ICTSO\n" +
+			  "Vui lòng liên hệ!\n" +
+			  "📞 Điện thoại: 0986 379 601 (Zalo)\n" +
+			  "📧 Email: ictso.top@gmail.com");
+	  }
+
+	  // Chặn chuột phải
+	  document.addEventListener('contextmenu', function(e) {
+		e.preventDefault();
+		ictsoAlert();
+	  });
+
+	  // Chặn phím tắt DevTools và View Source
+	  document.onkeydown = function(e) {
+		// F12
+		if (e.keyCode == 123) {
+		  ictsoAlert();
+		  return false;
+		}
+		// Ctrl+U, Ctrl+S
+		if (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'S'.charCodeAt(0))) {
+		  ictsoAlert();
+		  return false;
+		}
+		// Ctrl+Shift+I / J / C
+		if (e.ctrlKey && e.shiftKey && 
+			(e.keyCode == 'I'.charCodeAt(0) || 
+			 e.keyCode == 'J'.charCodeAt(0) || 
+			 e.keyCode == 'C'.charCodeAt(0))) {
+		  ictsoAlert();
+		  return false;
+		}
+	  };  
+    </script>
+</body>
+</html>
