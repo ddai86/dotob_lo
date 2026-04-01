@@ -44,7 +44,14 @@ Hướng dẫn chi tiết cài đặt Online: <a href="install/INSTALL_OFFLINE.m
 
 ## Nguồn gốc dự án
 dotob.LO được xây dựng tích hợp cho thị trường Việt Nam bởi <a href="https://ictso.top/blog/s%E1%BA%A3n-ph%E1%BA%A9m/" target="_blank">ICTSO.</a>
-
+<div class="contact-box">
+                <h3 style="margin: 0 0 15px 0;">LIÊN HỆ TƯ VẤN </h3>
+                <p><strong>Hotline:</strong> <a href="tel:0986379601">0986.379.601</a> | 
+				<a href="https://zalo.me/0986379601" title="Zalo">Zalo</a> </p>
+                <p><strong>Website:</strong> <a href="https://ictso.top">ictso.top</a> | <a href="https://qnict.net">qnict.net</a></p>
+                <p><strong>Email:</strong> <a href="mailto:ictso.top@gmail.com">support@ictso.top</a></p>
+                <p><strong>Chi tiết:</strong> <a href="https://ictso.top/tailieu/dotoblo/">https://ictso.top/tailieu/dotoblo/</a></p>
+            </div>
 ## License
 Apache License 2.0: xem [LICENSE](LICENSE).
 
