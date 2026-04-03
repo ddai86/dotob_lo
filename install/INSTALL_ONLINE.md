@@ -1,133 +1,85 @@
-# Hướng dẫn cài đặt Online dotob.LO (v1.0)
+# Hướng dẫn cài đặt dotob.LO (ONLINE) — Windows & Linux
 
-Tài liệu này hướng dẫn triển khai dotob.LO theo phương thức online bằng Docker Compose, sử dụng image đã pin digest trong compose.
+ONLINE nghĩa là: máy cài đặt có Internet trong lúc cài.
 
-## Điều kiện tiên quyết
+## Khuyến nghị trước khi cài
 
-- Máy chủ có Internet.
-- Cài Docker và Docker Compose (plugin `docker compose`).
-- Mở cổng 8080/tcp trên tường lửa nếu truy cập từ mạng ngoài.
-- Quyền sudo/root trên Linux hoặc Docker Desktop trên Windows.
+- Dung lượng trống khuyến nghị: tối thiểu 10GB (để chứa Docker images + dữ liệu MySQL/Redis + logs).
+- Nếu máy khác trong mạng LAN cần truy cập: đảm bảo không chặn cổng TCP `8080` (và `9999` nếu dùng trang log).
+- Trên Windows, nên chạy installer bằng quyền Administrator.
 
-## Cài đặt tự động (khuyến nghị)
+## 1) Bạn cần tải file nào?
 
-Nếu bạn đang ở thư mục gốc dự án, có thể dùng script tự động hoá:
+- Windows: `dotob-lo-installer-online.exe`
+- Linux (Ubuntu/Debian amd64): `dotob-lo-installer-online_1.0_amd64.deb`
 
-- Linux/macOS:
-  ```bash
-  sudo bash install/install-online.sh \
-    --url "http://SERVER_IP_OR_DOMAIN:8080" \
-    --db-password "your-db-pass" \
-    --mysql-root-password "your-root-pass"
-  ```
-  Tuỳ chọn: `--data-dir "/opt/dotob-lo"`, `--project-name "dotob-lo"`, `--compose "install/compose.dotob-lo.prod.online.yaml"`, `--app-key "your-app-key"`
+## 2) Cài đặt Windows (WSL2 + Docker Engine tự cài)
 
-- Windows (PowerShell):
-  ```powershell
-  powershell -ExecutionPolicy Bypass -File install\install-online.ps1 `
-    -Url "http://SERVER_IP_OR_DOMAIN:8080" `
-    -DbPassword "your-db-pass" `
-    -MysqlRootPassword "your-root-pass"
-  ```
-  Tuỳ chọn: `-DataDir "C:\dotob-lo"`, `-ProjectName "dotob-lo"`, `-Compose "install\compose.dotob-lo.prod.online.yaml"`, `-AppKey "your-app-key"`
+### Trước khi cài
+- Bạn cần quyền Administrator.
+- Khuyến nghị Windows 10/11 64-bit.
 
-## Nhanh gọn (Khuyến nghị)
+### Cài đặt
+1. Chuột phải `dotob-lo-installer-online.exe` → Run as administrator.
+2. Chọn thư mục cài đặt (giữ mặc định cũng được).
+3. Khi hỏi “Khởi động dotob.LO cùng Windows?”:
+   - Chọn Yes nếu muốn tự chạy sau mỗi lần mở máy.
+   - Chọn No nếu muốn tự bật khi cần.
+4. Chờ cài đặt hoàn tất.
 
-1. Chuẩn bị thư mục dữ liệu (Linux):
-   ```bash
-   sudo mkdir -p /opt/dotob-lo/{storage,mysql,redis}
-   sudo chown -R $USER:$USER /opt/dotob-lo
-   ```
+### Mở dotob.LO
+- Trên máy cài: `http://localhost:8080`
+- Máy khác trong LAN: `http://<IP_LAN_MAY_WINDOWS>:8080`
 
-2. Lấy file compose online và chỉnh sửa biến cần thiết. Nếu bạn đang ở trong repo, dùng file:
-   - `install/compose.dotob-lo.prod.online.yaml`
+Ghi chú: nếu dotob.LO chạy Docker trong WSL2, installer đã tự cấu hình expose ra LAN (port 8080/9999 + firewall).
 
-   Cần sửa các biến sau trong phần `services.admin.environment` và `services.mysql.environment`:
-   - `APP_KEY`: chuỗi ngẫu nhiên ≥16 ký tự.
-   - `URL`: đổi thành `http://SERVER_IP_OR_DOMAIN:8080` (hoặc domain của bạn).
-   - `DB_PASSWORD`: mật khẩu MySQL cho ứng dụng.
-   - `MYSQL_ROOT_PASSWORD`: mật khẩu root MySQL.
-   - (Tuỳ chọn) đổi ánh xạ cổng trong `ports` nếu không muốn dùng 8080.
+Khuyến nghị: để tránh lỗi truy cập từ LAN, hãy mở Windows Defender Firewall cho cổng `8080` nếu bạn có bật tường lửa.
 
-   Gợi ý tạo nhanh `APP_KEY`:
-   - Linux/macOS: `openssl rand -hex 16`
-   - Windows PowerShell:
-     ```powershell
-     -join ((33..126) | Get-Random -Count 24 | % {[char]$_})
-     ```
+### Dừng / chạy lại
+Trong Start Menu có nhóm “dotob.LO”:
+- Start dotob.LO
+- Stop dotob.LO
+- Open dotob.LO
 
-3. Khởi chạy stack (trong thư mục chứa file compose):
-   ```bash
-   docker compose -p dotob-lo -f install/compose.dotob-lo.prod.online.yaml up -d
-   ```
+## 3) Cài đặt Linux (Ubuntu/Debian amd64)
 
-4. Kiểm tra trạng thái và log:
-   ```bash
-   docker compose -p dotob-lo ps
-   docker compose -p dotob-lo logs -f admin
-   ```
+### Trước khi cài
+- Bạn cần quyền sudo/root.
+- Internet để installer tự cài Docker Engine + docker compose plugin.
 
-5. Truy cập giao diện quản trị:
-   - `http://SERVER_IP_OR_DOMAIN:8080`
-
-### Xác minh nhanh
+### Cài đặt
+1. Copy file `dotob-lo-installer-online_1.0_amd64.deb` lên máy Linux.
+2. Cài:
 
 ```bash
-curl -f http://SERVER_IP_OR_DOMAIN:8080/api/health
+sudo apt install ./dotob-lo-installer-online_1.0_amd64.deb
 ```
 
-## Ghi chú quan trọng
+Trong quá trình cài sẽ hỏi “Khởi động dotob.LO cùng hệ thống?”:
+- Nhập `Y` để bật tự khởi động sau reboot.
+- Nhập `n` để tắt.
 
-- File compose đã pin digest image app. Không cần `docker pull` thủ công; Docker sẽ tự kéo đúng image.
-- Compose online vẫn sẽ kéo các image phụ trợ (MySQL, Redis) từ Docker Hub.
-- Dữ liệu bền vững nằm trong:
-  - `/opt/dotob-lo/storage`
-  - `/opt/dotob-lo/mysql`
-  - `/opt/dotob-lo/redis`
+### Mở dotob.LO
+- Trên máy Linux: `http://localhost:8080`
+- Máy khác trong LAN: `http://<IP_LAN_MAY_LINUX>:8080`
 
-## Tuỳ chỉnh
-
-- Đổi cổng: sửa dòng `ports` của dịch vụ `admin`, ví dụ `- "9090:8080"` để truy cập qua cổng 9090.
-- Đổi vị trí dữ liệu: cập nhật các bind mount trong `volumes` trỏ tới thư mục mong muốn.
-- SSL/TLS: đặt reverse proxy (Nginx/Caddy/Traefik) phía trước và cấu hình HTTPS cho domain.
-
-## Nâng cấp/Patch
-
-- Vì đã pin digest, để nâng cấp phiên bản app, cập nhật lại dòng `image:` trong file compose với digest mới rồi:
-  ```bash
-  docker compose -p dotob-lo up -d
-  ```
-- Hoặc thay thế file compose online bằng bản mới nhất từ dự án và chạy lại lệnh trên.
-
-## Khởi động cùng hệ thống
-
-- Các container có `restart: unless-stopped` sẽ tự khởi động cùng Docker daemon.
-- Để đảm bảo stack Compose khởi động khi máy boot, có thể tạo systemd unit chạy `docker compose -p dotob-lo up -d` sau khi Docker sẵn sàng.
-
-## Gỡ cài đặt
-
+### Lệnh quản trị nhanh
 ```bash
-docker compose -p dotob-lo -f install/compose.dotob-lo.prod.online.yaml down
-# Tuỳ chọn: xoá dữ liệu (không thể khôi phục)
-sudo rm -rf /opt/dotob-lo
+dotob-lo status
+dotob-lo logs
+dotob-lo down
+dotob-lo up
 ```
 
-## Windows (Docker Desktop)
+### Bật/tắt tự khởi động (systemd)
+```bash
+sudo systemctl enable --now dotob-lo.service
+sudo systemctl disable --now dotob-lo.service
+```
 
-- Có thể dùng file compose online như trên. Nếu muốn lưu dữ liệu vào ổ đĩa Windows, đổi bind mount sang đường dẫn tuyệt đối Windows, ví dụ:
-  ```yaml
-  volumes:
-    - "C:/dotob-lo/storage:/app/storage"
-    - "C:/dotob-lo/mysql:/var/lib/mysql"
-    - "C:/dotob-lo/redis:/data"
-  ```
-- Khuyến nghị bật WSL2 backend trong Docker Desktop để hiệu năng tốt hơn.
-
-## Sự cố thường gặp
-
-- Cổng 8080 bận: đổi ánh xạ `ports` hoặc giải phóng cổng.
-- Quyền thư mục: đảm bảo user Docker có quyền đọc/ghi vào `/opt/dotob-lo/*`.
-- MySQL khởi tạo lâu: lần đầu chạy có thể mất vài chục giây; xem `docker compose logs -f mysql`.
-- Không truy cập được từ ngoài: mở cổng 8080 trên firewall/router và kiểm tra `URL` đúng IP/Domain.
-
----
+## 4) Nếu không truy cập được
+- Kiểm tra `http://localhost:8080` trên chính máy cài.
+- Nếu máy khác trong LAN không vào được: kiểm tra firewall (Windows Defender Firewall / ufw) và đảm bảo port 8080 không bị chặn.
+- Xem logs:
+  - Windows: `http://localhost:9999`
+  - Linux: `dotob-lo logs`

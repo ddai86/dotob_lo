@@ -1,84 +1,87 @@
-# Hướng dẫn cài đặt Offline dotob.LO (v1.0)
+# Hướng dẫn cài đặt dotob.LO (OFFLINE) — Windows & Linux
 
-Tài liệu này hướng dẫn triển khai dotob.LO theo phương thức offline: máy đích không cần Internet. Đã đóng gói Docker images thành một file `.tar`, chép sang máy đích rồi `docker load` và chạy bằng Docker Compose.
+OFFLINE nghĩa là: máy cài đặt không có Internet trong lúc cài.
 
-## Điều kiện tiên quyết
-- Máy cài đặt (không Internet): cài sẵn Docker và Docker Compose (plugin `docker compose`).
-- Cổng 8080/tcp mở trên máy đích nếu truy cập từ máy khác trong mạng.
+## Khuyến nghị trước khi cài
 
-## 1) Đóng gói bản cài đặt offline lưu tại:
-- bản đóng gói này 4Gb~5Gb lên các bạn tải ở đây `https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar`
-- `install/dist/dotob-lo_core_1.0.tar.sha256`
+- Dung lượng trống khuyến nghị: tối thiểu 10GB.
+- Dù file Windows `dotob-lo-installer-offline.exe` có thể nhỏ hơn nhiều, khi cài đặt hệ thống vẫn sẽ giải nén Docker images ra dung lượng thật.
+- Nếu máy khác trong mạng LAN cần truy cập: đảm bảo không chặn cổng TCP `8080` (và `9999` nếu dùng trang log).
 
-## 2) Tải và chép bộ cài sang máy đích
+## 1) Bạn cần tải file nào?
 
-Chép các file sau sang máy cài đặt để vào foder 'dotob-lo' (Lưu ý :tạo foder 'dotob-lo' trong 'opt' trên máy cần cài đặt theo thư mục `/opt/dotob-lo/`):
-- `https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar`
-- `install/dist/dotob-lo_core_1.0.tar.sha256`
-- `install/compose.dotob-lo.prod.offline.yaml`
+- Windows: `dotob-lo-installer-offline.exe`
+- Linux (Ubuntu/Debian amd64): `dotob-lo-installer-offline_1.0_amd64.deb`
 
-## 3) Xác minh file tar (khuyến nghị)
+Các file trên đã nhúng sẵn images, nên không cần tải thêm `dotob-lo_core_1.0.tar`.
 
-Trên máy cài đặt (Linux), tại thư mục chứa file tar:
+## 2) Cài đặt Windows (WSL2 + Docker Engine tự cài)
 
-```bash
-sha256sum -c dotob-lo_core_1.0.tar.sha256
-```
+### Trước khi cài
+- Bạn cần quyền Administrator.
+- Khuyến nghị Windows 10/11 64-bit.
 
-Kết quả mong muốn: `OK`.
+### Cài đặt
+1. Chuột phải `dotob-lo-installer-offline.exe` → Run as administrator.
+2. Chọn thư mục cài đặt (giữ mặc định cũng được).
+3. Khi hỏi “Khởi động dotob.LO cùng Windows?”:
+   - Chọn Yes nếu muốn tự chạy sau mỗi lần mở máy.
+   - Chọn No nếu muốn tự bật khi cần.
+4. Chờ cài đặt hoàn tất.
 
-## 4) Nạp images và chạy hệ thống (máy đích offline)
+### Mở dotob.LO
+- Trên máy cài: `http://localhost:8080`
+- Máy khác trong LAN: `http://<IP_LAN_MAY_WINDOWS>:8080`
 
-1. Nạp images vào Docker:
+Ghi chú: nếu dotob.LO chạy Docker trong WSL2, installer đã tự cấu hình expose ra LAN (port 8080/9999 + firewall).
 
-```bash
-docker load -i dotob-lo_core_1.0.tar
-```
+### Dừng / chạy lại
+Trong Start Menu có nhóm “dotob.LO”:
+- Start dotob.LO
+- Stop dotob.LO
+- Open dotob.LO
 
-2. Chuẩn bị thư mục dữ liệu:
+## 3) Cài đặt Linux (Ubuntu/Debian amd64)
 
-```bash
-sudo mkdir -p /opt/dotob-lo/{storage,mysql,redis}
-sudo chown -R $USER:$USER /opt/dotob-lo
-```
+### Trước khi cài
+- Bạn cần quyền sudo/root.
+- Máy cần có sẵn Docker Engine + docker compose plugin trong hệ điều hành.
 
-3. Chỉnh các biến bắt buộc trong file compose offline (`compose.dotob-lo.prod.offline.yaml`):
-- `URL`: `http://SERVER_IP_OR_DOMAIN:8080`
-- `APP_KEY`: chuỗi ngẫu nhiên ≥16 ký tự
-- `DB_PASSWORD`: mật khẩu MySQL cho ứng dụng
-- `MYSQL_ROOT_PASSWORD` và `MYSQL_PASSWORD`: mật khẩu MySQL
+Khuyến nghị: nếu máy Linux thật sự “offline hoàn toàn”, bạn hãy cài Docker Engine và docker compose plugin sẵn từ bộ cài nội bộ của bạn trước, rồi mới chạy file `.deb`.
 
-4. Chạy stack:
-
-```bash
-docker compose -p dotob-lo -f compose.dotob-lo.prod.offline.yaml up -d
-```
-
-5. Kiểm tra:
+### Cài đặt
+1. Copy file `dotob-lo-installer-offline_1.0_amd64.deb` lên máy Linux.
+2. Cài:
 
 ```bash
-docker compose -p dotob-lo ps
-docker compose -p dotob-lo logs -f admin
-curl -f http://SERVER_IP_OR_DOMAIN:8080/api/health
+sudo apt install ./dotob-lo-installer-offline_1.0_amd64.deb
 ```
 
-Truy cập giao diện: `http://SERVER_IP_OR_DOMAIN:8080`
+Trong quá trình cài sẽ hỏi “Khởi động dotob.LO cùng hệ thống?”:
+- Nhập `Y` để bật tự khởi động sau reboot.
+- Nhập `n` để tắt.
 
-## Ghi chú quan trọng
+### Mở dotob.LO
+- Trên máy Linux: `http://localhost:8080`
+- Máy khác trong LAN: `http://<IP_LAN_MAY_LINUX>:8080`
 
-- File compose offline dùng `image: dotob-lo-admin:1.0` (local image). Vì vậy bắt buộc phải `docker load` file tar trước khi chạy.
-- File `.tar` chỉ chứa Docker images, không chứa dữ liệu volumes/bind-mount. Dữ liệu bền vững nằm trong:
-  - `/opt/dotob-lo/storage`
-  - `/opt/dotob-lo/mysql`
-  - `/opt/dotob-lo/redis`
-- Nếu bạn chạy nhiều lần trên máy mới và muốn “dữ liệu sạch”, xoá các thư mục dữ liệu trên rồi chạy lại.
-
-## Gỡ cài đặt
-
+### Lệnh quản trị nhanh
 ```bash
-docker compose -p dotob-lo -f compose.dotob-lo.prod.offline.yaml down
-# Tuỳ chọn: xoá dữ liệu (không thể khôi phục)
-sudo rm -rf /opt/dotob-lo
+dotob-lo status
+dotob-lo logs
+dotob-lo down
+dotob-lo up
 ```
 
----
+### Bật/tắt tự khởi động (systemd)
+```bash
+sudo systemctl enable --now dotob-lo.service
+sudo systemctl disable --now dotob-lo.service
+```
+
+## 4) Nếu không truy cập được
+- Kiểm tra `http://localhost:8080` trên chính máy cài.
+- Nếu máy khác trong LAN không vào được: kiểm tra firewall (Windows Defender Firewall / ufw) và đảm bảo port 8080 không bị chặn.
+- Xem logs:
+  - Windows: `http://localhost:9999`
+  - Linux: `dotob-lo logs`
