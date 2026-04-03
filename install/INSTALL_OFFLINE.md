@@ -9,8 +9,8 @@ OFFLINE nghĩa là: máy cài đặt không có Internet trong lúc cài.
 
 ## 1) Bạn cần tải file nào?
 
-- Windows: `dotob-lo-installer-offline.exe`
-- Linux (Ubuntu/Debian amd64): `dotob-lo-installer-offline_1.0_amd64.deb`
+- Windows: `dotob-lo-installer-offline.exe` <a href="https://ictso.top/tailieu/dotoblo/dotob-lo-installer-offline.exe" target="_blank">tải về dotob-lo-installer-offline.exe</a>
+- Linux (Ubuntu/Debian amd64): `dotob-lo-installer-offline_1.0_amd64.deb` <a href="https://ictso.top/tailieu/dotoblo/dotob-lo-installer-offline_1.0_amd64.deb" target="_blank">tải về dotob-lo-installer-offline_1.0_amd64.deb</a>
 
 Các file trên đã tích hợp sẵn images apps.
 
