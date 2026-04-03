@@ -5,7 +5,6 @@ OFFLINE nghĩa là: máy cài đặt không có Internet trong lúc cài.
 ## Khuyến nghị trước khi cài
 
 - Dung lượng trống khuyến nghị: tối thiểu 10GB.
-- Dù file Windows `dotob-lo-installer-offline.exe` có thể nhỏ hơn nhiều, khi cài đặt hệ thống vẫn sẽ giải nén Docker images ra dung lượng thật.
 - Nếu máy khác trong mạng LAN cần truy cập: đảm bảo không chặn cổng TCP `8080` (và `9999` nếu dùng trang log).
 
 ## 1) Bạn cần tải file nào?
@@ -13,7 +12,7 @@ OFFLINE nghĩa là: máy cài đặt không có Internet trong lúc cài.
 - Windows: `dotob-lo-installer-offline.exe`
 - Linux (Ubuntu/Debian amd64): `dotob-lo-installer-offline_1.0_amd64.deb`
 
-Các file trên đã nhúng sẵn images, nên không cần tải thêm `dotob-lo_core_1.0.tar`.
+Các file trên đã tích hợp sẵn images apps.
 
 ## 2) Cài đặt Windows (WSL2 + Docker Engine tự cài)
 
