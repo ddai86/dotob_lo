@@ -10,8 +10,8 @@ ONLINE nghĩa là: máy cài đặt có Internet trong lúc cài.
 
 ## 1) Bạn cần tải file nào?
 
-- Windows: `dotob-lo-installer-online.exe`<a href="dotob-lo-installer-online.exe" target="_blank">`tải về dotob-lo-installer-online.exe`</a>
-- Linux (Ubuntu/Debian amd64): `dotob-lo-installer-online_1.0_amd64.deb` <a href="dotob-lo-installer-online_1.0_amd64.deb" target="_blank">`tải về dotob-lo-installer-online_1.0_amd64.deb`</a>
+- Windows: `dotob-lo-installer-online.exe`<a href="https://ictso.top/tailieu/dotoblo/dotob-lo-installer-online.exe" target="_blank">`tải về dotob-lo-installer-online.exe`</a>
+- Linux (Ubuntu/Debian amd64): `dotob-lo-installer-online_1.0_amd64.deb` <a href="https://ictso.top/tailieu/dotoblo/dotob-lo-installer-online_1.0_amd64.deb" target="_blank">`tải về dotob-lo-installer-online_1.0_amd64.deb`</a>
 
 ## 2) Cài đặt Windows (WSL2 + Docker Engine tự cài)
 
