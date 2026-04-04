@@ -3,14 +3,21 @@
 OFFLINE nghĩa là: máy cài đặt không có Internet trong lúc cài.
 
 ## Khuyến nghị trước khi cài
-
 - Dung lượng trống khuyến nghị: tối thiểu 10GB.
+- Dù file cài có thể nhỏ hơn nhiều, khi cài đặt hệ thống vẫn sẽ giải nén Docker images ra dung lượng thật.
 - Nếu máy khác trong mạng LAN cần truy cập: đảm bảo không chặn cổng TCP `8080` (và `9999` nếu dùng trang log).
+- OFFLINE chỉ đảm bảo “không cần tải images”. Máy vẫn cần có Docker runtime để chạy:
+  - Windows: Docker Desktop (khuyến nghị) hoặc Docker Engine trong WSL2 (đã cài sẵn).
+  - Linux: Docker Engine + docker compose plugin (đã cài sẵn).
 
 ## 1) Bạn cần tải file nào?
+### Windows
 
-- Windows: `dotob-lo-installer-offline.exe` <a href="https://ictso.top/tailieu/dotoblo/dotob-lo-installer-offline.exe" target="_blank">tải về dotob-lo-installer-offline.exe</a>
-- Linux (Ubuntu/Debian amd64): `dotob-lo-installer-offline_1.0_amd64.deb` <a href="https://ictso.top/tailieu/dotoblo/dotob-lo-installer-offline_1.0_amd64.deb" target="_blank">tải về dotob-lo-installer-offline_1.0_amd64.deb</a>
+- File cần có:
+  - `dotob-lo-installer-online.exe`<a href="https://ictso.top/tailieu/dotoblo/dotob-lo-installer-online.exe" target="_blank">tải về dotob-lo-installer-online.exe</a>
+  - `dotob-lo_core_1.0.tar` (đặt cùng thư mục với file `.exe`) <a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar" target="_blank">tải về dotob-lo_core_1.0.tar</a>
+### Linux 
+- (Ubuntu/Debian amd64): `dotob-lo-installer-offline_1.0_amd64.deb` <a href="https://ictso.top/tailieu/dotoblo/dotob-lo-installer-offline_1.0_amd64.deb" target="_blank">tải về dotob-lo-installer-offline_1.0_amd64.deb</a>
 
 Các file trên đã tích hợp sẵn images apps.
 
@@ -21,7 +28,7 @@ Các file trên đã tích hợp sẵn images apps.
 - Khuyến nghị Windows 10/11 64-bit.
 
 ### Cài đặt
-1. Chuột phải `dotob-lo-installer-offline.exe` → Run as administrator.
+1. Chuột phải `dotob-lo-installer-online.exe` → Run as administrator.
 2. Chọn thư mục cài đặt (giữ mặc định cũng được).
 3. Khi hỏi “Khởi động dotob.LO cùng Windows?”:
    - Chọn Yes nếu muốn tự chạy sau mỗi lần mở máy.
