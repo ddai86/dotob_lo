@@ -162,7 +162,7 @@ Truy cập:
 
 ### 7.1) Chuẩn bị file offline tar
 
-Bạn cần file `dotob-lo_core_1.0.tar` (đã đóng gói sẵn) trên máy Linux.
+Bạn cần file `dotob-lo_core_1.0.tar`<a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar" target="_blank">tải về dotob-lo_core_1.0.tar</a> (đã đóng gói sẵn) trên máy Linux.
 
 Nếu máy Linux “offline hoàn toàn”, hãy copy file tar bằng USB/LAN nội bộ.
 
