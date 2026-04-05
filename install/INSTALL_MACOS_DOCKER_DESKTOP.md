@@ -122,7 +122,7 @@ Truy cập:
 
 ### 7.1) Nạp images từ file tar
 
-Bạn cần file `dotob-lo_core_1.0.tar` trên máy macOS.
+Bạn cần file `dotob-lo_core_1.0.tar`<a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar" target="_blank">tải về dotob-lo_core_1.0.tar</a> trên máy macOS.
 
 ```bash
 docker load -i ./dotob-lo_core_1.0.tar
