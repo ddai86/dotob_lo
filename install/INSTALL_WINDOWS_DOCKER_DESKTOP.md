@@ -123,7 +123,7 @@ mkdir C:\dotob-lo\storage, C:\dotob-lo\mysql, C:\dotob-lo\redis
 dotob_lo có 2 kiểu:
 
 - Online: kéo image từ Internet rồi chạy bằng compose online.
-- Offline: nạp image từ file `.tar` (không cần Internet khi cài), rồi chạy bằng compose offline.
+- Offline: nạp image từ file `dotob-lo_core_1.0.tar`<a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar" target="_blank">tải về dotob-lo_core_1.0.tar</a> (không cần Internet khi cài), rồi chạy bằng compose offline.
 
 File compose:
 
