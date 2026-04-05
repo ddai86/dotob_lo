@@ -25,8 +25,18 @@ Xem chi tiết thông tin <a href="https://ictso.top/tailieu/dotoblo/" target="_
 
 ## Triển khai (Online/Offline)
 Các file đóng gói v1.0 nằm trong thư mục `install/`:
+Cài đặt theo hệ điều hành: (chọn một trong những phương án cài đặt sau cho phù hợp)
 
-### Online (khuyến nghị)
+### Hướng dẫn cài đặt trên Windows (WSL2 + Docker Desktop) — Online hoặc Offline
+Hướng dẫn cài đặt dotob_lo trên Windows (WSL2 + Docker Desktop) — Online hoặc Offline: <a href="install/INSTALL_WINDOWS_DOCKER_DESKTOP.md" target="_blank">`install/INSTALL_WINDOWS_DOCKER_DESKTOP.md`</a>
+
+### Hướng dẫn cài đặt trên Linux (Docker Engine + Docker Compose V2) — Online hoặc Offline (đề xuất nên sử dụng)
+Hướng dẫn cài đặt dotob_lo trên Linux (Docker Engine + Docker Compose V2) — Online hoặc Offline: <a href="install/INSTALL_LINUX_DOCKER_ENGINE.md" target="_blank">`install/INSTALL_LINUX_DOCKER_ENGINE.md`</a>
+
+### Hướng dẫn cài đặt trên macOS (Docker Desktop) — Online hoặc Offline
+Hướng dẫn cài đặt dotob_lo trên macOS (Docker Desktop) — Online hoặc Offline: <a href="install/INSTALL_MACOS_DOCKER_DESKTOP.md" target="_blank">`install/INSTALL_MACOS_DOCKER_DESKTOP.md`</a>
+
+### Online (đề xuất nên sử dụng)
 Cài đặt tự động (khuyến nghị):
 Hướng dẫn chi tiết cài đặt Online: <a href="install/INSTALL_ONLINE.md" target="_blank">`install/INSTALL_ONLINE.md`</a>
 
