@@ -133,6 +133,20 @@ Kiểm tra có image local:
 ```bash
 docker image ls | grep dotob-lo-admin
 ```
+### */Lưu ý quan trọng về kiến trúc CPU (Apple Silicon)
+
+- Máy Intel thường chạy trực tiếp image `amd64`.
+- Máy Apple Silicon (M1/M2/M3…) là `arm64`. Nếu file tar của bạn được đóng gói từ máy `amd64` và chỉ chứa image `amd64`, có thể gặp:
+  - Container không chạy và báo `exec format error`
+  - Hoặc chạy được nhờ giả lập `amd64` nhưng chậm hơn
+
+Kiểm tra kiến trúc image sau khi `docker load`:
+
+```bash
+docker image inspect dotob-lo-admin:1.0 --format '{{.Os}}/{{.Architecture}}'
+```
+
+Nếu ra `linux/amd64` trên máy Apple Silicon, hãy bật giả lập `amd64` trong Docker Desktop (nếu có) hoặc dùng bản tar/image phù hợp `arm64`.
 
 ### 7.2) Chạy compose offline
 
