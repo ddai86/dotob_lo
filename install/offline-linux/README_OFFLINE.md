@@ -1,40 +1,23 @@
-# Cài đặt offline
+# Cài đặt “dễ nhất tuyệt đối” (không cần can thiệp nhiều)
+
 Mục tiêu:
 
-- Không cần Internet trên máy cài đặt.
-- Toàn bộ images cần thiết được đóng gói thành 1 file `.tar`.
+- Người cài chỉ cần **giải nén** và **chạy 1 lệnh / 1 file**.
+- Offline bundle đã kèm sẵn images + tự cài sẵn các ứng dụng phổ biến.
 
-### Linux
+## Linux Ubuntu/Debian (offline)
 
-`--include-apps` được khuyến nghị để máy offline có thể cài các ứng dụng mà không cần pull Internet.
+Bạn tải các file sau về để cùng 1 thư mục(khuyến nghị):
+- `dotob-lo_core_1.0.tar.sha256`<a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar.sha256" target="_blank">tải  tại đây</a>
+- `install-offline.sh`<a href="https://ictso.top/tailieu/dotoblo/install-offline.sh" target="_blank">tải  tại đây</a>
+- `dotob-lo_core_1.0.tar` <a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar" target="_blank">tải  tại đây</a>
+- `Start-dotobLO-Offline.sh`<a href="https://ictso.top/tailieu/dotoblo/Start-dotobLO-Offline.sh" target="_blank">tải  tại đây</a>
 
-## Cài đặt (trên máy offline)
-
-Tải về các file:
-- `dotob-lo_core_1.0.tar`
-- `dotob-lo_core_1.0.tar.sha256`
-- `offline-linux/install-offline.sh`
-- `offline-linux/compose.dotob-lo.prod.offline.yaml`
-
-### Linux
+Người dùng chạy:
 
 ```bash
-sudo bash install/install-offline.sh --bundle-tar install/dist/dotob-lo_core_1.0.tar --server-host 192.168.1.10
+sudo bash Start-dotobLO-Offline.sh
 ```
 
-Sau khi chạy xong:
+Script sẽ `docker load` và khởi chạy stack offline.
 
-- Admin: `http://<server-host>:8080`
-- Apps gateway: `http://<server-host>:8081/apps/<service>/`
-
-##Nếu vào Settings > Apps không thấy ứng dụng
-
-- Kiểm tra log migrator: `docker logs dotoblo_migrator`
-- Chạy lại migrator (migrations + seeds + refresh catalog):
-  - `docker compose -f <compose.yml> run --rm migrator`
-
-
-##) Lưu ý ổn định
-
-- `DOTOB_HOST_DATA_DIR` nên đặt ra ổ đĩa riêng (vd `/opt/dotob-lo`).
-- Nếu muốn hoàn toàn offline cho các app, bật `-IncludeApps` khi tạo bundle để preload images phổ biến.
