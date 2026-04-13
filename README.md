@@ -26,13 +26,13 @@ Xem chi tiết thông tin <a href="https://ictso.top/tailieu/dotoblo/" target="_
 ## Triển khai (Online/Offline)
 Các file đóng gói v1.0 nằm trong thư mục `install/`:
 
-### Online (khuyến nghị)
-Cài đặt tự động (khuyến nghị):
-Hướng dẫn chi tiết cài đặt Online: <a href="install/INSTALL_ONLINE.md" target="_blank">`install/INSTALL_ONLINE.md`</a>
-
-### Offline (không cần Internet ở máy đích):
-Đóng gói offline kèm toàn bộ image app để cài app khi không có Internet 
-Hướng dẫn chi tiết cài đặt Online: <a href="install/INSTALL_OFFLINE.md" target="_blank">`install/INSTALL_OFFLINE.md`</a>
+### Cài đặt tự động (khuyến nghị):
+#### Windows:
+Đóng gói offline kèm toàn bộ image app
+Hướng dẫn chi tiết cài đặt Online: <a href="install/offline-windows/README.md" target="_blank">`install/offline-windows.md`</a>
+#### Linux:
+Đóng gói offline kèm toàn bộ image app
+Hướng dẫn chi tiết cài đặt: <a href="install/offline-linux/README.md" target="_blank">`install/offline-linux.md`</a>
 
 ## Các thành phần chính
 
