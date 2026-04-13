@@ -7,11 +7,11 @@ Mục tiêu:
 
 ## Windows (offline)
 
-Phát hành dạng thư mục/zip (khuyến nghị):
-
+Bạn tải các file sau về để cùng 1 thư mục(khuyến nghị):
+- `dotob-lo_core_1.0.tar.sha256`<a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar.sha256" target="_blank">tải  tại đây</a>
 - `dotob-lo-installer-online.exe`<a href="https://ictso.top/tailieu/dotoblo/dotob-lo-installer-online.exe" target="_blank">tải  tại đây</a>
 - `dotob-lo_core_1.0.tar` <a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar" target="_blank">tải  tại đây</a>
-- `Start-dotobLO-Offline.cmd`
+- `Start-dotobLO-Offline.cmd`<a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar" target="_blank">tải  tại đây</a>
 
 Người dùng chỉ cần chạy:
 
@@ -21,11 +21,11 @@ Installer sẽ tự copy tar vào thư mục cài và tự chạy setup.
 
 ## Linux Ubuntu/Debian (offline)
 
-Phát hành dạng thư mục/tar.gz:
-
-- `dotob-lo_core_1.0.tar` <a href="https://ictso.top/tailieu/dotoblo/dotob-lo-installer-online.exe" target="_blank">tải  tại đây</a>
-- `install-offline.sh`
-- `Start-dotobLO-Offline.sh`
+Bạn tải các file sau về để cùng 1 thư mục(khuyến nghị):
+- `dotob-lo_core_1.0.tar.sha256`<a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar.sha256" target="_blank">tải  tại đây</a>
+- `install-offline.sh`<a href="https://ictso.top/tailieu/dotoblo/install-offline.sh" target="_blank">tải  tại đây</a>
+- `dotob-lo_core_1.0.tar` <a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar" target="_blank">tải  tại đây</a>
+- `Start-dotobLO-Offline.sh`<a href="https://ictso.top/tailieu/dotoblo/Start-dotobLO-Offline.sh" target="_blank">tải  tại đây</a>
 
 Người dùng chạy:
 
