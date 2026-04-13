@@ -18,20 +18,3 @@ Người dùng chỉ cần chạy:
 - `Start-dotobLO-Offline.cmd`
 
 Installer sẽ tự copy tar vào thư mục cài và tự chạy setup.
-
-## Linux Ubuntu/Debian (offline)
-
-Bạn tải các file sau về để cùng 1 thư mục(khuyến nghị):
-- `dotob-lo_core_1.0.tar.sha256`<a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar.sha256" target="_blank">tải  tại đây</a>
-- `install-offline.sh`<a href="https://ictso.top/tailieu/dotoblo/install-offline.sh" target="_blank">tải  tại đây</a>
-- `dotob-lo_core_1.0.tar` <a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar" target="_blank">tải  tại đây</a>
-- `Start-dotobLO-Offline.sh`<a href="https://ictso.top/tailieu/dotoblo/Start-dotobLO-Offline.sh" target="_blank">tải  tại đây</a>
-
-Người dùng chạy:
-
-```bash
-sudo bash Start-dotobLO-Offline.sh
-```
-
-Script sẽ `docker load` và khởi chạy stack offline.
-
