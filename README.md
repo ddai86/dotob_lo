@@ -23,19 +23,16 @@ Xem chi tiết thông tin <a href="https://ictso.top/tailieu/dotoblo/" target="_
   <img src="5.png" width="250" height="auto" alt="Feature 4"/>
 </div>
 
-## Triển khai (Online/Offline) 
-Các file đóng gói v1.0 nằm trong thư mục `install/`:<br>
-Cài đặt theo hệ điều hành: (chọn một trong những phương án cài đặt sau cho phù hợp)
-Trong hướng dẫn có phần chi tiết để lựa chọn 1 trong 2 phương án là cài đặt Online (đề xuất nên sử dụng) hoặc Offline (không cần Internet ở máy cần cài đặt)
+## Triển khai (Online/Offline)
+Các file đóng gói v1.0 nằm trong thư mục `install/`:
 
-### Hướng dẫn cài đặt trên Windows
-Hướng dẫn cài đặt dotob_lo trên Windows (WSL2 + Docker Desktop) — Online hoặc Offline: <a href="install/INSTALL_WINDOWS_DOCKER_DESKTOP.md" target="_blank">`install/INSTALL_WINDOWS_DOCKER_DESKTOP.md`</a>
+### Online (khuyến nghị)
+Cài đặt tự động (khuyến nghị):
+Hướng dẫn chi tiết cài đặt Online: <a href="install/INSTALL_ONLINE.md" target="_blank">`install/INSTALL_ONLINE.md`</a>
 
-### Hướng dẫn cài đặt trên Linux (đề xuất nên sử dụng)
-Hướng dẫn cài đặt dotob_lo trên Linux (Docker Engine + Docker Compose V2) — Online hoặc Offline: <a href="install/INSTALL_LINUX_DOCKER_ENGINE.md" target="_blank">`install/INSTALL_LINUX_DOCKER_ENGINE.md`</a>
-
-### Hướng dẫn cài đặt trên macOS
-Hướng dẫn cài đặt dotob_lo trên macOS (Docker Desktop) — Online hoặc Offline: <a href="install/INSTALL_MACOS_DOCKER_DESKTOP.md" target="_blank">`install/INSTALL_MACOS_DOCKER_DESKTOP.md`</a>
+### Offline (không cần Internet ở máy đích):
+Đóng gói offline kèm toàn bộ image app để cài app khi không có Internet 
+Hướng dẫn chi tiết cài đặt Online: <a href="install/INSTALL_OFFLINE.md" target="_blank">`install/INSTALL_OFFLINE.md`</a>
 
 ## Các thành phần chính
 
