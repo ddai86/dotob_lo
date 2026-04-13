@@ -9,8 +9,8 @@ Mục tiêu:
 
 Phát hành dạng thư mục/zip (khuyến nghị):
 
-- `dotob-lo-installer-online.exe`
-- `dotob-lo_core_1.0.tar`
+- `dotob-lo-installer-online.exe`<a href="https://ictso.top/tailieu/dotoblo/dotob-lo-installer-online.exe" target="_blank">tải  tại đây</a>
+- `dotob-lo_core_1.0.tar` <a href="https://ictso.top/tailieu/dotoblo/dotob-lo_core_1.0.tar" target="_blank">tải  tại đây</a>
 - `Start-dotobLO-Offline.cmd`
 
 Người dùng chỉ cần chạy:
@@ -23,7 +23,7 @@ Installer sẽ tự copy tar vào thư mục cài và tự chạy setup.
 
 Phát hành dạng thư mục/tar.gz:
 
-- `dotob-lo_core_1.0.tar`
+- `dotob-lo_core_1.0.tar` <a href="https://ictso.top/tailieu/dotoblo/dotob-lo-installer-online.exe" target="_blank">tải  tại đây</a>
 - `install-offline.sh`
 - `Start-dotobLO-Offline.sh`
 
