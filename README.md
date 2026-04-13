@@ -32,7 +32,7 @@ Các file đóng gói v1.0 nằm trong thư mục `install/`:
 Hướng dẫn chi tiết cài đặt Online: <a href="install/offline-windows/README.md" target="_blank">`install/offline-windows.md`</a>
 #### Linux:
 Đóng gói offline kèm toàn bộ image app
-Hướng dẫn chi tiết cài đặt: <a href="install/offline-linux/README.md" target="_blank">`install/offline-linux.md`</a>
+Hướng dẫn chi tiết cài đặt: <a href="install/offline-linux/README_OFFLINE.md" target="_blank">`install/offline-linux.md`</a>
 
 ## Các thành phần chính
 
