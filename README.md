@@ -26,7 +26,7 @@ Xem chi tiết thông tin <a href="https://ictso.top/tailieu/dotoblo/" target="_
 ## Triển khai (Online/Offline)
 Các file đóng gói v1.0 nằm trong thư mục `install/`:
 
-### Cài đặt tự động (khuyến nghị): (có thẻ tải full bộ cài triển khai offline <a href="https://ictso.top/tailieu/dotoblo/dotob_lo_setup.zip" target="_blank"> tải  tại đây </a> )
+### Cài đặt tự động (khuyến nghị): (có thể tải full bộ cài triển khai offline <a href="https://ictso.top/tailieu/dotoblo/dotob_lo_setup.zip" target="_blank"> tải tại đây </a> )
 
 #### Windows:
 Đóng gói offline kèm toàn bộ image app
